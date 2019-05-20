@@ -4,5 +4,15 @@
     <%= text_field_tag 'sym', nil, placeholder: 'Enter Crypto Symbol', size: 50 %>
     <%= submit_tag 'Search Stock Quote' %>
 <% end %>
+</br>
 
-<p><%= @symbol %></p>
+
+<% if @symbol %>
+    <% for x in @coins_search %>
+        <% if @symbol == x["symbol"] %>
+            <p><%= x["name"] %>: $<%= x["price_usd"]%></p>
+            <p>24h_volume_usd: <%= x["24h_volume_usd"] %></p>
+            Rank: <%= x["rank"] %>
+           <% end %>
+    <% end %>
+<% end %>

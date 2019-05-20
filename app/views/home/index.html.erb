@@ -1,11 +1,11 @@
-<h1>this is h1</h1>
+<h1>These are my favorite cryptos</h1>
 
 <% @coins %>
 
 <% for x in @coins %>
-    <% for coin in @coins_array %>
+    <% for coin in @coins_arr %>
         <% if coin == x["symbol"] %>
-            <p></p><%= x["name"] %>: $<%= x["price_usd"] %></p>
+            <p><%= x["name"] %>: $<%= x["price_usd"] %></p>
             <p>Rank: <%= x["rank"] %></p>
         <% end %>
     <% end %>
