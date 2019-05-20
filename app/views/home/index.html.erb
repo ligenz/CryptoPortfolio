@@ -1,12 +1,12 @@
-<h1>These are my favorite cryptos</h1>
+<h3>The list of my favorites cryptocurrencies: </h3>
 
 <% @coins %>
 
 <% for x in @coins %>
     <% for coin in @coins_arr %>
         <% if coin == x["symbol"] %>
-            <p><%= x["name"] %>: $<%= x["price_usd"] %></p>
             <p>Rank: <%= x["rank"] %></p>
+            <p><%= x["name"] %>: $<%= x["price_usd"] %></p>
         <% end %>
     <% end %>
 <% end %>
