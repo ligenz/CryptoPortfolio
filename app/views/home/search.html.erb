@@ -1,35 +1,4 @@
-<h3> CC search </h3>
-<% if false %>
-
-    <%= form_tag home_search_path, :method => 'POST' do %>
-        <%= text_field_tag 'sym', nil, placeholder: 'Enter Crypto Symbol', size: 50 %>
-        <%= submit_tag 'Search Stock Quote' %>
-    <% end %>
-    </br>
-    
-    
-    <% if @symbol %>
-        <% for x in @coins_search %>
-            <% if @symbol == x["symbol"] %>
-                <p><%= x["symbol"] %>: $<%= x["price_usd"]%></p>
-                <p>24h_volume_usd: <%= x["24h_volume_usd"] %></p>
-                Rank: <%= x["rank"] %>
-               <% end %>
-        <% end %>
-    <% end %>
-    
-    
-
-            
-    <select class="form-control">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
-<% end %>
-
+<h3> Cryptocurrency search </h3>
 
     <%= form_tag home_search_path, :method => 'POST' do %>
         <%= text_field_tag "curr_name", nil, placeholder: "Enter Crypto Name", size: 50 %>
