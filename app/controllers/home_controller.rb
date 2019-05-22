@@ -21,16 +21,20 @@ class HomeController < ApplicationController
     @response = Net::HTTP.get(@url)
     @coins_search = JSON.parse(@response)
     
+    
     @symbol = params[:sym]
+    @name = params[:curr_name]
    
     
-    if @symbol
-      @symbol = @symbol.upcase
+    if @name
+      @name = @name.capitalize
     end
     
-    if @symbol == ""
-      @symbol = "You forgot to type something."
+    if @name == ""
+      @name = "You forgot to type something."
     end
   end
-  
 end
+    
+    
+

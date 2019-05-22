@@ -12,11 +12,19 @@ class CryptosController < ApplicationController
     @url = URI(@url)
     @response = Net::HTTP.get(@url)
     @coins_search = JSON.parse(@response)
+    @profit_loss = 0
   end
 
   # GET /cryptos/1
   # GET /cryptos/1.json
   def show
+    @cryptos = Crypto.all
+    require 'net/http'
+    require 'json'
+    @url = 'https://api.coinmarketcap.com/v1/ticker/'
+    @url = URI(@url)
+    @response = Net::HTTP.get(@url)
+    @coins_search = JSON.parse(@response)
   end
 
   # GET /cryptos/new
@@ -26,7 +34,10 @@ class CryptosController < ApplicationController
 
   # GET /cryptos/1/edit
   def edit
+    
   end
+  
+
 
   # POST /cryptos
   # POST /cryptos.json
@@ -81,6 +92,6 @@ class CryptosController < ApplicationController
     
     def correct_user
       @correct = current_user.cryptos.find_by(id: params[:id])
-      redirect_to cryptos_path, notice: "Not Authorized to edit this entry"
+      redirect_to cryptos_path, notice: "Not Authorized to edit this entry" if @correct.nil?
     end
 end
